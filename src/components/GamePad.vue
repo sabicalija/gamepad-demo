@@ -9,9 +9,7 @@
     <div id="buttons">
       <span>Buttons:</span>
       <ul>
-        <li v-for="(button, i) of buttons" :key="i">
-          Button {{ i }}: {{ button.value }}
-        </li>
+        <li v-for="(button, i) of buttons" :key="i">Button {{ i }}: {{ button.value }}</li>
       </ul>
     </div>
     <div id="vibration">
@@ -24,26 +22,30 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "GamePad",
   data() {
     return {
-      gamepad: null,
       axes: null,
       buttons: null,
       vActuator: null
     };
   },
-  computed: mapState(["gamepads", "selection"]),
+  computed: mapGetters(["gamepad"]),
   methods: {
     updateGamePad() {
-      const gamepads = navigator.getGamepads();
-      this.gamepad = gamepads[this.gamepads[this.selection].index];
-      if (this.gamepad) {
-        this.axes = this.gamepad.axes;
-        this.buttons = this.gamepad.buttons;
-        this.vActuator = this.gamepad.vibrationActuator;
+      if (!this.gamepad) {
+        this.axes = [];
+        this.buttons = [];
+        this.vActuator = null;
+      } else {
+        const { index } = this.gamepad;
+        const gamepads = navigator.getGamepads();
+        const gamepad = gamepads[index];
+        this.axes = gamepad.axes;
+        this.buttons = gamepad.buttons;
+        this.vActuator = gamepad.vibrationActuator;
       }
     },
     tick() {

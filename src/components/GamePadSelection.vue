@@ -1,48 +1,31 @@
 <template>
   <div id="selection">
     <label for="gamepads">Choose a gamepad:</label>
-    <select name="gamepads" id="gamepads" @input="onInput">
-      <option
-        v-for="gamepad of gamepads"
-        :key="gamepad.index"
-        :value="gamepad.index"
-        >{{ gamepad.id }}</option
-      >
+    <select name="gamepads" id="gamepads" autofocus v-model="selection">
+      <option v-for="(gamepad, i) of gamepads" :key="gamepad.index" :value="i">{{
+        gamepad.id
+      }}</option>
     </select>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState } from "vuex";
 export default {
   name: "GamePadSelection",
   data() {
     return {};
   },
-  methods: {
-    ...mapMutations(["register", "updateSelection"]),
-    onInput(e) {
-      const index = e.srcElement.selectedIndex;
-      this.updateSelection(index);
-    },
-    log(gamepad) {
-      // eslint-disable-next-line no-console
-      console.log(`Gamepad connected: ${gamepad.id}.`, gamepad);
+  computed: {
+    ...mapState(["gamepads"]),
+    selection: {
+      get() {
+        return this.$store.state.selection;
+      },
+      set(value) {
+        this.$store.commit("select", value);
+      }
     }
-  },
-  computed: mapState(["gamepads", "selection"]),
-  created() {
-    window.addEventListener("gamepadconnected", e => {
-      this.log(e.gamepad);
-      this.register(e.gamepad);
-    });
-    this.register({
-      id: "Demo",
-      index: 99,
-      connected: false,
-      timestamp: 0,
-      mapping: "default"
-    });
   }
 };
 </script>

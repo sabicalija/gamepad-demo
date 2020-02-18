@@ -9,8 +9,18 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
-  name: "App"
+  name: "App",
+  created() {
+    window.addEventListener("gamepadconnected", e =>
+      this.register({ id: e.gamepad.id, index: e.gamepad.index })
+    );
+    window.addEventListener("gamepaddisconnected", e =>
+      this.unregister({ id: e.gamepad.id, index: e.gamepad.index })
+    );
+  },
+  methods: mapMutations(["register", "unregister"])
 };
 </script>
 
