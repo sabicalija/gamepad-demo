@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3f16ec6bb0cb394d6919",
-    "url": "/gamepad-demo/css/app.ad402700.css"
+    "revision": "fe5882ddc28b4ba1af4a",
+    "url": "/gamepad-demo/css/app.63baa372.css"
   },
   {
-    "revision": "93eb11db894200fba24a6f88e8491504",
+    "revision": "6d15487ef290ca4a01ddea386b3441b2",
     "url": "/gamepad-demo/index.html"
   },
   {
@@ -12,12 +12,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gamepad-demo/js/about.b98d2a83.js"
   },
   {
-    "revision": "3f16ec6bb0cb394d6919",
-    "url": "/gamepad-demo/js/app.590d985f.js"
+    "revision": "fe5882ddc28b4ba1af4a",
+    "url": "/gamepad-demo/js/app.94fe133f.js"
   },
   {
-    "revision": "6d04d174085eaf305acb",
-    "url": "/gamepad-demo/js/chunk-vendors.eee092e7.js"
+    "revision": "5d920560cb147b702473",
+    "url": "/gamepad-demo/js/chunk-vendors.442554bd.js"
   },
   {
     "revision": "549fe8440231ca390bdc7d4675854f21",
