@@ -1,5 +1,6 @@
 <template>
   <div id="gamepad">
+    <GamePadInfo />
     <div id="axes">
       <span>Axes:</span>
       <ul>
@@ -23,8 +24,10 @@
 
 <script>
 import { mapGetters } from "vuex";
+import GamePadInfo from "@/components/GamePadInfo.vue";
 export default {
   name: "GamePad",
+  components: { GamePadInfo },
   data() {
     return {
       axes: null,
@@ -50,7 +53,7 @@ export default {
     },
     tick() {
       this.updateGamePad();
-      window.requestAnimationFrame(() => this.tick());
+      window.requestAnimationFrame(this.tick);
     }
   },
   watch: {
@@ -59,7 +62,7 @@ export default {
     }
   },
   created() {
-    window.requestAnimationFrame(() => this.tick());
+    window.requestAnimationFrame(this.tick);
   }
 };
 </script>
