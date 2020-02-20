@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/gamepad-demo/precache-manifest.9e454d45e09ba0bc9157369bb05ef106.js"
+  "/gamepad-demo/precache-manifest.e05895534aa1dc15d8f6f74b410b696c.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "gamepad-demo"});
