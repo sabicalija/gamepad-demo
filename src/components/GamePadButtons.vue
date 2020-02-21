@@ -1,6 +1,6 @@
 <template>
   <div id="gamepad-buttons">
-    <div v-for="({ value, pressed }, index) of buttons" :key="index">
+    <div v-for="({ value, pressed }, index) of buttons" :key="index" :class="{ active: pressed }">
       <span>{{ `Button ${index}` }}</span>
       <span>{{ value }}</span>
       <span>{{ pressed }}</span>

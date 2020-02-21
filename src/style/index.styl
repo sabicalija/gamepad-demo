@@ -48,7 +48,7 @@ body, select, button
     border-radius 4px
     cursor pointer
 
-#gamepad-info, #gamepad-axes, #gamepad-buttons, #gamepad-vibration-actuator
+#gamepad-info, #gamepad-axes, #gamepad-buttons, #gamepad-vibration-actuator, #gamepad-axes-graph
   display flex
   flex-flow row wrap
   // margin-top 4px
@@ -74,12 +74,14 @@ body, select, button
     background-color lighten($dark, 5%)
     span:first-child
       text-transform uppercase
-#gamepad-axes
+#gamepad-axes, #gamepad-axes-graph
   div
     background-color lighten($dark, 10%)
 #gamepad-buttons
   div
     background-color lighten($dark, 20%)
+    &.active
+      background-color lighten($dark, 40%)
 #gamepad-vibration-actuator > div
     background-color lighten($dark, 40%)
     button
@@ -93,3 +95,22 @@ body, select, button
       font-size 1.4rem
     button[disabled]
         background-color grayscale($accent)
+
+#gamepad-axes-graph
+  div
+    svg
+      line
+        stroke $light
+        stroke-width 0.001
+      circle
+        stroke $light
+        stroke-width 0.01
+        fill none
+        &#boundary
+          cx 0
+          cy 0
+          r 0.98
+        &#pointer
+          stroke none
+          fill darken(red,20%)
+          r 0.02
