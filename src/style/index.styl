@@ -19,6 +19,7 @@ body, select, button
       margin-right 0px
       border-radius 0 12px 0 0
     background-color $primary
+    box-shadow 0 1px 5px 0 darken($dark, 30%)
     &:hover
       background-color lighten($primary, 10%)
     &.router-link-exact-active
@@ -37,6 +38,7 @@ body, select, button
       padding 10px 0px
     & > div
       position relative
+      padding-bottom 5px
       &:before
         position absolute
         font-family 'fa-solid'
