@@ -1,5 +1,5 @@
 body
-  max-width 1200px
+  max-width 1254px
   margin auto
 
 body, select, button
@@ -27,8 +27,6 @@ body, select, button
     text-decoration none
     font-size 1.4rem
 
-
-// https://www.clickstorm.de/blog/dropdown-css3/
 #selection
   display flex
   flex-flow row wrap
@@ -51,7 +49,7 @@ body, select, button
       & > select
         width 100%
         padding 5px 10px
-        margin-bottom 5px
+        margin-bottom 5pxs
         font-size 1.2rem
         appearance none
         border none
@@ -62,10 +60,37 @@ body, select, button
         border-radius 4px
         cursor pointer
 
+#about
+  padding 5px 10px
+  max-width 700px
+  margin auto
+  p
+    font-size 1.4rem
+  ul
+    list-style-type none
+    li
+      padding 0 0 0.4rem 0
+      &:before
+        font-family "fa-solid"
+        content "\f6be"
+        font-size 1rem
+        padding 0 0.4rem 0 0
+      &:nth-child(4n-2):before
+        content "\f520"
+      &:nth-child(4n-1):before
+        content "\f6d3"
+      &:nth-child(4n):before
+        content "\f700"
+  h1
+    text-align center
+    &:after, &:before
+      font-family "fa-solid"
+      content "\f004"
+      padding 0 10px
+
 #gamepad-info, #gamepad-axes, #gamepad-buttons, #gamepad-vibration-actuator, #gamepad-axes-graph, #selection
   display flex
   flex-flow row wrap
-  // margin-top 4px
   justify-content space-between
   align-content flex-start
   & > div
