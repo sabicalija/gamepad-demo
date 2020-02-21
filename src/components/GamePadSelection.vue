@@ -30,19 +30,4 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-#selection {
-  display: flex;
-  flex-flow: row wrap;
-
-  & > * {
-    width: 100%;
-    padding: 12px 8px;
-  }
-
-  select {
-    font-size: 1.4rem;
-    font-family: 'Ubuntu Light';
-  }
-}
-</style>
+<style lang="stylus" scoped></style>

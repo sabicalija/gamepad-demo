@@ -36,24 +36,4 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-// #gamepad-buttons
-//   display flex
-//   flex-flow row wrap
-//   justify-content space-between
-//   div
-//     display flex
-//     flex-flow column wrap
-//     flex-growth 1
-//     background-color lighten($dark, 15%)
-//     padding 14px 10px
-//     margin 5px
-//     box-shadow 3px 3px 6px 2px darken($dark, 30%)
-//     width 22%
-//     span
-//       color white
-//       text-align right
-//       &:first-child
-//         white-space nowrap
-//         text-align left
-</style>
+<style lang="stylus" scoped></style>

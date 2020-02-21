@@ -35,21 +35,4 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-// #gamepad-axes
-//   display flex
-//   flex-flow row nowrap
-//   justify-content space-between
-//   div
-//     display flex
-//     flex-flow column wrap
-//     background-color lighten($dark, 5%)
-//     padding 14px 10px
-//     margin 2px 1px
-//     box-shadow 0 1px 6px 0 darken($dark, 30%)
-//     width 100%
-//     span
-//       color white
-//       &:last-child
-//         text-align right
-</style>
+<style lang="stylus" scoped></style>

@@ -1,8 +1,8 @@
 <template>
   <div id="gamepad-info">
     <div v-for="(value, name) in { index, connected, mapping, timestamp }" :key="name">
-      <span>{{ name }}</span
-      ><span>{{ value }}</span>
+      <span>{{ name }}</span>
+      <span>{{ value }}</span>
     </div>
   </div>
 </template>
@@ -19,9 +19,7 @@ export default {
       timestamp: ""
     };
   },
-  computed: {
-    ...mapGetters(["gamepad"])
-  },
+  computed: mapGetters(["gamepad"]),
   methods: {
     update() {
       if (this.gamepad) {
@@ -43,23 +41,4 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-#gamepad-info
-  display flex
-  flex-flow row nowrap
-  justify-content space-between
-  & > div
-    background-color #2c333a
-    display flex
-    flex-flow column wrap
-    padding 10px
-    margin 2px 1px
-    box-shadow 0 1px 6px 0 rgba(32, 33, 36, .28)
-    width 100%
-    & > span
-      color white
-      &:first-child
-        text-transform uppercase
-      &:last-child
-        text-align right
-</style>
+<style lang="stylus" scoped></style>

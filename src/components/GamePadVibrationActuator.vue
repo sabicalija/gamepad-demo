@@ -1,8 +1,8 @@
 <template>
   <div id="gamepad-vibration-actuator">
-    <div>
+    <div v-if="actuator">
       <span>Type</span>
-      <span>{{ actuator ? actuator.type : "" }}</span>
+      <span>{{ actuator.type }}</span>
       <button @click="vibrate" :disabled="active">Start</button>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default {
     update() {
       if (this.gamepad) {
         const gp = navigator.getGamepads()[this.gamepad.index];
-        this.actuator = gp.vibrationActutator;
+        this.actuator = gp.vibrationActuator;
       }
     },
     tick() {
@@ -32,7 +32,6 @@ export default {
     },
     vibrate() {
       if (this.gamepad) {
-        console.log("vibration");
         const gp = navigator.getGamepads()[this.gamepad.index];
         this.active = true;
         const duration = 400;

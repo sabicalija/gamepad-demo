@@ -1,2 +1,95 @@
-// #app
-//   background-color red
+body
+  max-width 1200px
+  margin auto
+
+body, select, button
+  font-family: 'Ubuntu Mono', 'Ubuntu Light', 'Arial', 'Helvetica', 'sans-serif'
+
+#nav
+  display flex
+  flex-flow row nowrap
+  margin 4px
+  a
+    flex-grow 1
+    padding 24px 12px
+    margin-right 3px
+    &:first-child
+      border-radius 12px 0 0 0
+    &:last-child
+      margin-right 0px
+      border-radius 0 12px 0 0
+    background-color $primary
+    &:hover
+      background-color lighten($primary, 10%)
+    &.router-link-exact-active
+      background-color $accent
+    color white
+    text-decoration none
+    font-size 1.4rem
+
+
+#selection
+  display flex
+  flex-flow row wrap
+  margin 4px
+  *
+    width 100%
+    padding 5px 10px
+  select
+    font-size 1.2rem
+    appearance none
+    border none
+    height 3.5vh
+    // https://www.clickstorm.de/blog/dropdown-css3/
+    // background: linear-gradient(0deg, lighten($accent, 85%) 0%, lighten($accent, 75%) 50%);
+    // background: linear-gradient(0deg, lighten($dark, 50%) 0%, lighten($dark, 75%) 50%);
+    background-color: ligthen($dark, 75%)
+    box-shadow 0 1px 6px 0 darken($dark, 30%)
+    border-radius 4px
+    cursor pointer
+
+#gamepad-info, #gamepad-axes, #gamepad-buttons, #gamepad-vibration-actuator
+  display flex
+  flex-flow row wrap
+  // margin-top 4px
+  justify-content space-between
+  align-content flex-start
+  div
+    display flex
+    flex-flow column wrap
+    flex 1 0.5 22.5%
+    width 100%
+    padding 5px 10px
+    margin 4px
+    box-shadow 0 1px 6px 0 darken($dark, 30%)
+    span
+      margin-top 4px
+      color white
+      text-align right
+      &:first-child
+        white-space nowrap
+        text-align left
+
+#gamepad-info > div
+    background-color lighten($dark, 5%)
+    span:first-child
+      text-transform uppercase
+#gamepad-axes
+  div
+    background-color lighten($dark, 10%)
+#gamepad-buttons
+  div
+    background-color lighten($dark, 20%)
+#gamepad-vibration-actuator > div
+    background-color lighten($dark, 40%)
+    button
+      background-color $accent
+      padding 5px 10px
+      margin 14px 0px 4px 0px
+      color white
+      box-shadow 0 1px 4px 0 darken($dark, 30%)
+      border none
+      border-radius 3px
+      font-size 1.4rem
+    button[disabled]
+        background-color grayscale($accent)
