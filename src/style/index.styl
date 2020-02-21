@@ -9,7 +9,7 @@ body, select, button
   display flex
   flex-flow row nowrap
   margin 4px
-  a
+  & > a
     flex-grow 1
     padding 24px 12px
     margin-right 3px
@@ -28,41 +28,55 @@ body, select, button
     font-size 1.4rem
 
 
+// https://www.clickstorm.de/blog/dropdown-css3/
 #selection
   display flex
   flex-flow row wrap
-  margin 4px
-  *
-    width 100%
-    padding 5px 10px
-  select
-    font-size 1.2rem
-    appearance none
-    border none
-    height 3.5vh
-    // https://www.clickstorm.de/blog/dropdown-css3/
-    // background: linear-gradient(0deg, lighten($accent, 85%) 0%, lighten($accent, 75%) 50%);
-    // background: linear-gradient(0deg, lighten($dark, 50%) 0%, lighten($dark, 75%) 50%);
-    background-color: ligthen($dark, 75%)
-    box-shadow 0 1px 6px 0 darken($dark, 30%)
-    border-radius 4px
-    cursor pointer
+  color white
+  & > div
+    background-color lighten($accent, 0%)
+    & > label
+      padding 10px 0px
+    & > div
+      position relative
+      &:before
+        position absolute
+        font-family 'fa-solid'
+        content "\f107"
+        font-size 1.8rem
+        right 15px
+        top 0.5rem
+        color white
+        pointer-events none
+      & > select
+        width 100%
+        padding 5px 10px
+        margin-bottom 5px
+        font-size 1.2rem
+        appearance none
+        border none
+        height 3.5vh
+        color white
+        background-color: darken($primary, 15%)
+        box-shadow 0 1px 4px 0 darken($primary,30%)
+        border-radius 4px
+        cursor pointer
 
-#gamepad-info, #gamepad-axes, #gamepad-buttons, #gamepad-vibration-actuator, #gamepad-axes-graph
+#gamepad-info, #gamepad-axes, #gamepad-buttons, #gamepad-vibration-actuator, #gamepad-axes-graph, #selection
   display flex
   flex-flow row wrap
   // margin-top 4px
   justify-content space-between
   align-content flex-start
-  div
+  & > div
     display flex
     flex-flow column wrap
     flex 1 0.5 22.5%
     width 100%
     padding 5px 10px
     margin 4px
-    box-shadow 0 1px 6px 0 darken($dark, 30%)
-    span
+    box-shadow 0 1px 5px 0 darken($dark, 30%)
+    & > span
       margin-top 4px
       color white
       text-align right
@@ -71,46 +85,45 @@ body, select, button
         text-align left
 
 #gamepad-info > div
-    background-color lighten($dark, 5%)
-    span:first-child
-      text-transform uppercase
+  background-color lighten($dark, 5%)
+  span:first-child
+    text-transform uppercase
 #gamepad-axes, #gamepad-axes-graph
-  div
+  & > div
     background-color lighten($dark, 10%)
-#gamepad-buttons
-  div
+#gamepad-buttons > div
     background-color lighten($dark, 20%)
     &.active
       background-color lighten($dark, 40%)
 #gamepad-vibration-actuator > div
-    background-color lighten($dark, 40%)
-    button
+    background-color lighten($dark, 10%)
+    & > button
       background-color $accent
       padding 5px 10px
-      margin 14px 0px 4px 0px
+      margin 14px 0px 5px 0px
       color white
-      box-shadow 0 1px 4px 0 darken($dark, 30%)
+      box-shadow 0 1px 4px 0 darken($accent, 30%)
       border none
       border-radius 3px
       font-size 1.4rem
-    button[disabled]
+    & > button[disabled]
         background-color grayscale($accent)
 
-#gamepad-axes-graph
-  div
-    svg
-      line
-        stroke $light
-        stroke-width 0.001
-      circle
-        stroke $light
-        stroke-width 0.01
-        fill none
-        &#boundary
-          cx 0
-          cy 0
-          r 0.98
-        &#pointer
-          stroke none
-          fill darken(red,20%)
-          r 0.02
+#gamepad-axes-graph > div > svg
+  max-width 35%
+  margin auto
+  & > line
+    stroke $light
+    stroke-width 0.001
+  & > circle
+    stroke $light
+    stroke-width 0.01
+    fill none
+    &#boundary
+      cx 0
+      cy 0
+      r 0.98
+    &#pointer
+      stroke none
+      fill darken(red,20%)
+      r 0.02

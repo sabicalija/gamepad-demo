@@ -3,7 +3,7 @@ module.exports = {
   css: {
     loaderOptions: {
       stylus: {
-        import: ["~@/style/variables.styl", "~@/style/index.styl"]
+        import: ["~@/style/fonts.styl", "~@/style/variables.styl", "~@/style/index.styl"]
       }
     }
   },

@@ -5,6 +5,7 @@
         <circle id="boundary" />
         <line x1="-1" y1="0" x2="1" y2="0" />
         <line x1="0" y1="-1" x2="0" y2="1" />
+        <!-- <rectangle width="1" height="1" stroke="white" /> -->
         <circle id="pointer" :cx="joystick.x" :cy="joystick.y" />
       </svg>
     </div>

@@ -1,11 +1,15 @@
 <template>
   <div id="selection">
-    <label for="gamepads">Choose a gamepad:</label>
-    <select name="gamepads" id="gamepads" autofocus v-model="selection">
-      <option v-for="(gamepad, i) of gamepads" :key="gamepad.index" :value="i">{{
-        gamepad.id
-      }}</option>
-    </select>
+    <div>
+      <label for="gamepads">Choose a gamepad:</label>
+      <div>
+        <select name="gamepads" id="gamepads" autofocus v-model="selection">
+          <option v-for="(gamepad, i) of gamepads" :key="gamepad.index" :value="i">{{
+            gamepad.id
+          }}</option>
+        </select>
+      </div>
+    </div>
   </div>
 </template>
 
