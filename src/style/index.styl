@@ -12,7 +12,7 @@ body, select, button
   & > a
     flex-grow 1
     padding 24px 12px
-    margin-right 3px
+    margin-right 8px
     &:first-child
       border-radius 12px 0 0 0
     &:last-child
@@ -34,6 +34,7 @@ body, select, button
   color white
   & > div
     background-color lighten($accent, 0%)
+    // background-color: darken($primary, 15%)
     & > label
       padding 10px 0px
     & > div
@@ -58,6 +59,7 @@ body, select, button
         height 3.5vh
         color white
         background-color: darken($primary, 15%)
+        // background-color lighten($accent, 0%)
         box-shadow 0 1px 4px 0 darken($primary,30%)
         border-radius 4px
         cursor pointer
@@ -90,7 +92,7 @@ body, select, button
       content "\f004"
       padding 0 10px
 
-#gamepad-info, #gamepad-axes, #gamepad-buttons, #gamepad-vibration-actuator, #gamepad-axes-graph, #selection
+#gamepad-info, #gamepad-axes, #gamepad-buttons, #gamepad-vibration-actuator, #gamepad-axes-graph, #selection, #sw-update-info
   display flex
   flex-flow row wrap
   justify-content space-between
@@ -110,6 +112,40 @@ body, select, button
       &:first-child
         white-space nowrap
         text-align left
+
+#sw-update-info
+  .slide-fade-enter-active
+    transition all .5s ease
+  .slide-fade-leave-active
+    transition all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+  .slide-fade-enter, .slide-fade-leave-to
+    transform translateX(10px)
+    opacity 0
+  color white
+  &:after
+    cursor pointer
+    pointer-events none
+    position relative
+    top 1rem
+    right 1.25rem
+    width 0
+    height 0
+    font-family "fa-solid"
+    transform scale(-1,1)
+    content "\f01e"
+    // content "\f2f1"
+    // content "\f381"
+    // content "\f358"
+  div
+    cursor pointer
+    height 1.8rem
+    line-height 1.8rem
+    font-size 1rem
+    padding 5px 10px
+    vertical-align bottom
+    flex-flow row nowrap
+    background-color lighten($secondary, 0%)
+    width 100%
 
 #gamepad-info > div
   background-color lighten($dark, 5%)

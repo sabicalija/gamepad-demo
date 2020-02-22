@@ -1,3 +1,5 @@
+const WorkboxPlugin = require("workbox-webpack-plugin");
+
 module.exports = {
   publicPath: "/gamepad-demo/",
   css: {
@@ -35,17 +37,27 @@ module.exports = {
             orientation: "any",
             start_url: "/gamepad-demo/",
             icons: {
-              android: true, // Create Android homescreen icon. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-              appleIcon: true, // Create Apple touch icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-              appleStartup: true, // Create Apple startup images. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-              coast: false, // Create Opera Coast icon. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-              favicons: true, // Create regular favicons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-              firefox: true, // Create Firefox OS icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-              windows: true, // Create Windows 8 tile icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-              yandex: false // Create Yandex browser icon. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+              android: true,
+              appleIcon: true,
+              appleStartup: true,
+              coast: false,
+              favicons: true,
+              firefox: true,
+              windows: true,
+              yandex: false
             }
           }
         }
       ]);
+    config.plugin("workbox").use(WorkboxPlugin.GenerateSW, [
+      {
+        exclude: [/\.map$/, /img\/favicon\//],
+        maximumFileSizeToCacheInBytes: 3500000,
+        cacheId: "gamepad-demo",
+        importScripts: ["js/skip-waiting.js"],
+        clientsClaim: true,
+        skipWaiting: false
+      }
+    ]);
   }
 };
